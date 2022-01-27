@@ -1,4 +1,5 @@
 /*
+ *
  * Copyright 2016 Red Hat, Inc. and/or its affiliates
  * and other contributors as indicated by the @author tags.
  *
@@ -168,6 +169,8 @@ public class OIDCIdentityProvider extends AbstractOAuth2IdentityProvider<OIDCIde
 
     @Override
     protected Response exchangeStoredToken(UriInfo uriInfo, EventBuilder event, ClientModel authorizedClient, UserSessionModel tokenUserSession, UserModel tokenSubject) {
+
+				logger.infof("====  exchangeStoredToken : %s", tokenSubject.toString());
         FederatedIdentityModel model = session.users().getFederatedIdentity(authorizedClient.getRealm(), tokenSubject, getConfig().getAlias());
         if (model == null || model.getToken() == null) {
             event.detail(Details.REASON, "requested_issuer is not linked");
@@ -401,7 +404,7 @@ public class OIDCIdentityProvider extends AbstractOAuth2IdentityProvider<OIDCIde
         String id = idToken.getSubject();
         BrokeredIdentityContext identity = new BrokeredIdentityContext(id);
 
-				logger.infof("====  extractIdentity in OIDC id token object : {}", idToken.getOtherClaims());
+				logger.infof("====  extractIdentity in OIDC id token object : %s", idToken.getOtherClaims().toString());
         String name = (String) idToken.getOtherClaims().get(IDToken.NAME);
         String givenName = (String)idToken.getOtherClaims().get(IDToken.GIVEN_NAME);
         String familyName = (String)idToken.getOtherClaims().get(IDToken.FAMILY_NAME);
