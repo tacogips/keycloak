@@ -163,7 +163,8 @@ public abstract class AuthorizationEndpointBase {
 
         logger.infof("======= checking ssl ======");
         logger.infof("session %s", session);
-        logger.infof("get schema %s",session.getContext().getUri().getBaseUri().getScheme());
+        logger.infof("get base url %s",session.getContext().getUri().getBaseUri());
+        logger.infof("get uri schema %s",session.getContext().getUri().getBaseUri().getScheme());
         logger.infof("realm %s", realm);
         logger.infof("realm get ssl %s", realm.getSslRequired());
 
