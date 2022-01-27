@@ -34,12 +34,14 @@ import org.keycloak.util.JsonSerialization;
 import org.keycloak.util.TokenUtil;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import org.jboss.logging.Logger;
 
 public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper implements OIDCIDTokenMapper, UserInfoTokenMapper {
 
     public static final String PROVIDER_ID = "oidc-claims-param-token-mapper";
 
     private static final List<ProviderConfigProperty> configProperties = new ArrayList<>();
+    private final Logger logger = Logger.getLogger(ClaimsParameterTokenMapper.class);
 
     static {
         OIDCAttributeMapperHelper.addIncludeInTokensConfig(configProperties, ClaimsParameterTokenMapper.class);
@@ -73,6 +75,7 @@ public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper imple
     @Override
     protected void setClaim(IDToken token, ProtocolMapperModel mappingModel, UserSessionModel userSession, KeycloakSession keycloakSession, ClientSessionContext clientSessionCtx) {
         String claims = clientSessionCtx.getClientSession().getNote(OIDCLoginProtocol.CLAIMS_PARAM);
+				logger.infof("===== setClaim: claims %s", claims);
         if (claims == null) return;
 
         if (TokenUtil.TOKEN_TYPE_ID.equals(token.getType())) {
@@ -87,6 +90,7 @@ public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper imple
     private void putClaims(String tokenType, String claims, IDToken token, ProtocolMapperModel mappingModel, UserSessionModel userSession) {
         JsonNode requestParams = null;
 
+				logger.infof("===== putClaim");
         try {
             requestParams = JsonSerialization.readValue(claims, JsonNode.class);
         } catch (IOException e) {
@@ -95,6 +99,8 @@ public class ClaimsParameterTokenMapper extends AbstractOIDCProtocolMapper imple
         if (!requestParams.has(tokenType)) return;
 
         JsonNode tokenNode = requestParams.findValue(tokenType);
+
+				logger.infof("===== putClaim:Token Node: %s", tokenNode);
 
         OIDCWellKnownProvider.DEFAULT_CLAIMS_SUPPORTED.stream()
             .filter(i->tokenNode.has(i))
