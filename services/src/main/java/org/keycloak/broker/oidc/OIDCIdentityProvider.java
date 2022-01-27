@@ -400,13 +400,15 @@ public class OIDCIdentityProvider extends AbstractOAuth2IdentityProvider<OIDCIde
     protected BrokeredIdentityContext extractIdentity(AccessTokenResponse tokenResponse, String accessToken, JsonWebToken idToken) throws IOException {
         String id = idToken.getSubject();
         BrokeredIdentityContext identity = new BrokeredIdentityContext(id);
+
+				logger.infof("====  extractIdentity in OIDC id token object : {}", idToken.getOtherClaims());
         String name = (String) idToken.getOtherClaims().get(IDToken.NAME);
         String givenName = (String)idToken.getOtherClaims().get(IDToken.GIVEN_NAME);
         String familyName = (String)idToken.getOtherClaims().get(IDToken.FAMILY_NAME);
         String preferredUsername = (String) idToken.getOtherClaims().get(getusernameClaimNameForIdToken());
         String email = (String) idToken.getOtherClaims().get(IDToken.EMAIL);
 
-				logger.infof("====  extractIdentity in OIDC id token : id: %s, name:%s,givenName:%s, familyName:%s, preferredUsername:%s, email:%s ", id,name,givenName,familyName,preferredUsername,email );
+				logger.infof("====  extractIdentity in OIDC id token fields : id: %s, name:%s,givenName:%s, familyName:%s, preferredUsername:%s, email:%s ", id,name,givenName,familyName,preferredUsername,email );
 
         if (!getConfig().isDisableUserInfoService()) {
             String userInfoUrl = getUserInfoUrl();
