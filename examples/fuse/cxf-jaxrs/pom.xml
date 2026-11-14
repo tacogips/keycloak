@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>keycloak-examples-fuse-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.5.0.Final</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.keycloak.example.demo</groupId>
+    <artifactId>cxf-jaxrs-example</artifactId>
+    <packaging>bundle</packaging>
+    <name>CXF JAXRS Example - Secured in Karaf/Fuse</name>
+
+    <properties>
+        <cxf.version>2.7.14</cxf.version>
+        <keycloak.osgi.export>
+        </keycloak.osgi.export>
+        <keycloak.osgi.import>
+            META-INF.cxf;version="[2.7,3.2)",
+            META-INF.cxf.osgi;version="[2.7,3.2)";resolution:=optional,
+            org.apache.cxf.transport.http;version="[2.7,3.2)",
+            org.apache.cxf.*;version="[2.7,3.2)",
+            org.codehaus.jackson.jaxrs;version="${jackson.version}",
+            org.keycloak.adapters.jetty;version="${project.version}",
+            org.keycloak.adapters;version="${project.version}",
+            *
+        </keycloak.osgi.import>
+        <keycloak.osgi.private>
+            org.keycloak.example.rs.*
+        </keycloak.osgi.private>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Import-Package>${keycloak.osgi.import}</Import-Package>
+                        <Private-Package>${keycloak.osgi.private}</Private-Package>
+                        <Export-Package>${keycloak.osgi.export}</Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

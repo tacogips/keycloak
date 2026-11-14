@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>keycloak-examples-providers-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.5.0.Final</version>
+    </parent>
+
+    <name>Event Listener System.out Example</name>
+    <description/>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>event-listener-sysout-example</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-model-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-events-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>event-listener-sysout-example</finalName>
+    </build>
+</project>
