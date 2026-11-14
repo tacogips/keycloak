@@ -1,0 +1,10 @@
+.navbar-pf .navbar-brand{
+    width:154px; 
+    height:37px; 
+    margin: 5px 0px 5px 20px;
+    background: url('../img/keycloak-logo.png') no-repeat;
+}
+
+.navbar-pf .navbar-brand span{
+    display:none
+}
