@@ -1,0 +1,16 @@
+<div class="col-md-12">
+    <h1>Realms</h1>
+
+    <table class="datatable table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Realm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="r in realms">
+                <td><a href="#/realms/{{r.realm}}">{{r.realm}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
