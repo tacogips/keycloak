@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>keycloak-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.3.1.Final</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <name>Distribution Parent</name>
+    <description/>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>distribution-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>adapters</module>
+        <module>demo-dist</module>
+        <module>docs-dist</module>
+        <module>examples-dist</module>
+        <module>proxy-dist</module>
+        <module>server-dist</module>
+        <module>server-overlay</module>
+        <module>src-dist</module>
+        <module>subsystem-war</module>
+        <module>feature-packs</module>
+    </modules>
+</project>
