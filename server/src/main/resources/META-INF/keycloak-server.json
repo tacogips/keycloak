@@ -1,0 +1,43 @@
+{
+    "admin": {
+        "realm": "keycloak-admin"
+    },
+
+    "audit": {
+        "provider": "jpa",
+        "jpa": {
+            "exclude-events": [ "REFRESH_TOKEN" ]
+        }
+    },
+
+    "model": {
+        "provider": "jpa"
+    },
+
+    "timer": {
+        "provider": "basic"
+    },
+
+    "theme": {
+        "default": "keycloak",
+        "folder": {
+          "dir": "${jboss.server.config.dir}/themes"
+        }
+    },
+
+    "login-forms": {
+        "provider": "freemarker"
+    },
+
+    "account": {
+        "provider": "freemarker"
+    },
+
+    "email": {
+        "provider": "freemarker"
+    },
+
+    "scheduled": {
+        "interval": 900
+    }
+}
