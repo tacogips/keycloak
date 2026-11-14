@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>keycloak-examples-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.2.0.Final-redhat-2</version>
+    </parent>
+
+    <name>Examples</name>
+    <description/>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>keycloak-examples-demo-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- <module>server</module> -->
+        <module>customer-app</module>
+        <module>customer-app-cli</module>
+        <module>customer-app-js</module>
+        <module>product-app</module>
+        <module>example-ear</module>
+        <module>admin-access-app</module>
+        <module>angular-product-app</module>
+        <module>database-service</module>
+        <module>third-party</module>
+        <module>third-party-cdi</module>
+    </modules>
+</project>
