@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project>
+    <parent>
+        <artifactId>keycloak-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.0-alpha-1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>keycloak-social-parent</artifactId>
+    <name>Keycloak Social Parent</name>
+    <description/>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <module>google</module>
+        <module>twitter</module>
+        <module>facebook</module>
+    </modules>
+
+</project>
