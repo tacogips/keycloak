@@ -1,0 +1,24 @@
+{
+    "admin": {
+        "realm": "master"
+    },
+
+    "model": {
+        "provider": "jpa"
+    },
+
+    "timer": {
+        "provider": "basic"
+    },
+
+    "theme": {
+        "default": "keycloak",
+        "folder": {
+            "dir": "${jboss.server.config.dir}/themes"
+        }
+    },
+
+    "scheduled": {
+        "interval": 900
+    }
+}
