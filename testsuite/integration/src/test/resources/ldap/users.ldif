@@ -1,0 +1,40 @@
+dn: dc=keycloak,dc=org
+objectclass: dcObject
+objectclass: organization
+o: Keycloak
+dc: Keycloak
+
+dn: ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: People
+
+dn: ou=Roles,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: Roles
+
+dn: ou=Groups,dc=keycloak,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: Groups
+
+dn: uid=johnkeycloak,ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectclass: inetOrgPerson
+uid: johnkeycloak
+cn: John
+sn: Doe
+mail: john@email.org
+
+dn: uid=existing,ou=People,dc=keycloak,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectclass: inetOrgPerson
+uid: existing
+cn: Existing
+sn: Foo
+mail: existing@email.org
