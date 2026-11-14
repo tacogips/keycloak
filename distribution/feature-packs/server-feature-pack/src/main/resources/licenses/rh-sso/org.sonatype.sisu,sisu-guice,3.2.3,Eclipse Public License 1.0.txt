@@ -1,0 +1,1 @@
+org.sonatype.sisu.inject,guice-servlet,3.2.3,Eclipse Public License 1.0.txt
