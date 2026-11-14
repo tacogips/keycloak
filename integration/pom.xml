@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>keycloak-parent</artifactId>
+        <groupId>org.keycloak</groupId>
+        <version>1.8.0.Final</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <name>Keycloak Integration</name>
+    <description/>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>keycloak-integration-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>adapter-spi</module>
+        <module>servlet-adapter-spi</module>
+        <module>adapter-core</module>
+        <module>jaxrs-oauth-client</module>
+        <module>servlet-oauth-client</module>
+        <module>jboss-adapter-core</module>
+        <module>tomcat</module>
+        <module>as7-eap6</module>
+        <module>jetty</module>
+        <module>undertow-adapter-spi</module>
+        <module>undertow</module>
+        <!--<module>wildfly</module>-->
+        <module>servlet-filter</module>
+        <module>js</module>
+        <module>installed</module>
+        <module>admin-client</module>
+        <module>osgi-adapter</module>
+        <!--<module>spring-boot</module>-->
+        <!--<module>spring-security</module>-->
+    </modules>
+</project>
