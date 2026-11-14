@@ -1,0 +1,122 @@
+<div class="bs-sidebar col-sm-3 " data-ng-include data-src="'partials/realm-menu.html'"></div>
+<div id="content-area" class="col-sm-9" role="main">
+    <data-kc-navigation data-kc-current="token" data-kc-realm="realm.realm" data-kc-social="realm.social"></data-kc-navigation>
+    <div id="content">
+        <ol class="breadcrumb">
+            <li><a href="#/realms/{{realm.realm}}">{{realm.realm}}</a></li>
+            <li><a href="#/realms/{{realm.realm}}">Settings</a></li>
+            <li class="active">Token</li>
+        </ol>
+        <h2><span>{{realm.realm}}</span> Token Settings</h2>
+        <form class="form-horizontal" name="realmForm" novalidate kc-read-only="!access.manageRealm">
+            <fieldset class="border-top">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="rememberMe">Remember Me</label>
+                    <div class="col-sm-4">
+                        <input ng-model="realm.rememberMe" name="rememberMe" id="rememberMe" onoffswitch />
+                    </div>
+                </div>
+                <div class="form-group input-select">
+                    <label class="col-sm-2 control-label" for="centralLoginLifespan">Central Login Lifespan</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input class="form-control" type="number" required min="1"
+                                       max="31536000" data-ng-model="realm.centralLoginLifespan"
+                                       id="centralLoginLifespan" name="centralLoginLifespan"/>
+                            </div>
+                            <div class="col-sm-2 select-kc">
+                                <select name="centralLoginLifespanUnit" data-ng-model="realm.centralLoginLifespanUnit" >
+                                    <option data-ng-selected="!realm.centralLoginLifespanUnit">Seconds</option>
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group input-select">
+                    <label class="col-sm-2 control-label" for="accessTokenLifespan">Access Token Lifespan</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input class="form-control" type="number" required min="1"
+                                       max="31536000" data-ng-model="realm.accessTokenLifespan"
+                                       id="accessTokenLifespan" name="accessTokenLifespan"/>
+                            </div>
+                            <div class="col-sm-2 select-kc">
+                                <select name="accessTokenLifespanUnit" data-ng-model="realm.accessTokenLifespanUnit" >
+                                    <option data-ng-selected="!realm.accessTokenLifespanUnit">Seconds</option>
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="accessCodeLifespan">Access code lifespan</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input class="form-control" type="number" required min="1" max="31536000" data-ng-model="realm.accessCodeLifespan" id="accessCodeLifespan" name="accessCodeLifespan">
+                            </div>
+                            <div class="col-sm-2 select-kc">
+                                <select name="accessCodeLifespanUnit" data-ng-model="realm.accessCodeLifespanUnit">
+                                    <option data-ng-selected="!realm.accessCodeLifespanUnit">Seconds</option>
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group input-select">
+                    <label class="col-sm-2 control-label" for="accessCodeLifespanUserAction" class="two-lines">Access code user action lifespan</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input class="form-control" type="number" required min="1" max="31536000" data-ng-model="realm.accessCodeLifespanUserAction" id="accessCodeLifespanUserAction" name="accessCodeLifespanUserAction">
+                            </div>
+                            <div class="col-sm-2 select-kc">
+                                <select name="accessCodeLifespanUserActionUnit" data-ng-model="realm.accessCodeLifespanUserActionUnit">
+                                    <option data-ng-selected="!realm.accessCodeLifespanUserActionUnit">Seconds</option>
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group input-select">
+                    <label class="col-sm-2 control-label" for="refreshTokenLifespan">Refresh token lifespan</label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input class="form-control" type="number" required min="1"
+                                       max="31536000" data-ng-model="realm.refreshTokenLifespan"
+                                       id="refreshTokenLifespan" name="refreshTokenLifespan"/>
+                            </div>
+                            <div class="col-sm-2 select-kc">
+                                <select name="refreshTokenLifespanUnit" data-ng-model="realm.refreshTokenLifespanUnit" >
+                                    <option data-ng-selected="!realm.refreshTokenLifespanUnit">Seconds</option>
+                                    <option>Minutes</option>
+                                    <option>Hours</option>
+                                    <option>Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="pull-right form-actions" data-ng-show="access.manageRealm">
+                <button kc-reset data-ng-show="changed">Clear changes</button>
+                <button kc-save data-ng-show="changed">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
